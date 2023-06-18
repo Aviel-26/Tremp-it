@@ -1,0 +1,56 @@
+.header{
+    margin: 00px 0px 10px 600px;
+    text-shadow: 1px 1px #fff;
+    display: inline-block
+}
+
+#formLogin{
+    display: inline-block;
+    border: solid  #8c0ff2;
+    border-radius: 25px; 
+    height: 270px;
+    width: 370px;
+    margin-top: 10px;
+    margin-left: 450px ;
+
+
+}
+#formLogin ul{
+    list-style: none;
+    margin-left: 45px;
+}
+#formLogin ul li{
+    margin-top: 20px;
+}
+#formLogin ul li input{
+    height: 30px;
+    width: 200px;
+
+}
+#formLogin hr{
+    border: 1.7px solid #8c0ff2;
+}
+
+
+.logBtn{
+    text-align: center;
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.607);
+    border-radius: 30px;
+    background: white;
+    background-color: rgba(237, 233, 10, 0.639);
+    margin: 0px 0px 10px 130px;
+}
+.divSinin{
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.link1{
+    margin-left: 15px;
+    
+} 

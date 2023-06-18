@@ -1,0 +1,28 @@
+.continer{
+    display: flex;
+    border: solid red;
+    margin-top: 300px;
+}
+.input{
+    height: 30px; 
+    margin-right: 20px;
+} 
+
+.BTNsearch{
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.607);
+    border-radius: 30px;
+    background: white;
+    background-color: rgba(237, 233, 10, 0.639);
+    margin: 10px; 
+}
+
+.test{
+    display: inline-block;
+    border: solid red;
+
+
+}

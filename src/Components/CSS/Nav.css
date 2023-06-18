@@ -1,0 +1,35 @@
+
+.navigation{
+    display: inline-block;
+    
+}
+
+#nav ul{
+    margin-top: 160px;
+    display: flex;
+    float: left;
+    list-style: none;
+
+}
+#img{
+    display: flex;
+    float: left;
+    height:220px ;
+    width: 320px ;
+}
+
+#nav ul li {
+    text-align: center;
+    padding: 10px;
+    height: 25px;
+    width: 50px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.607);
+    border-radius: 30px;
+    background: white;
+    background-color: rgba(237, 233, 10, 0.639);
+    margin: 10px;
+}
+#nav ul li:link{
+    text-decoration: none;
+}
