@@ -13,6 +13,7 @@ import Nav from './Components/Nav';
 import Singup from './Screens/Singup';
 import Login from './Screens/Login';
 import Sidebar from './Components/Sidebar';
+import About from './Screens/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,9 +22,9 @@ root.render(
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/singup' element={<Singup/>}/>
-      <Route path='/login' element={<Login/>}>
-        <Route path='/login/singup' element={<Singup/>}/>
-      </Route>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/about' element={<About/>}/>
+
       <Route path='/myrides' element={{}}/> {/* my rides components */}
       <Route path='/newride' element={{}}/> {/* presonal ditals compepnt  */}
       <Route path='settings' element={{}}/> {/* Settings compepnets */}
