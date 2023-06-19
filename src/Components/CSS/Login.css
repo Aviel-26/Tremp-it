@@ -8,7 +8,7 @@
     display: inline-block;
     border: solid  #8c0ff2;
     border-radius: 25px; 
-    height: 270px;
+    height: 280px;
     width: 370px;
     margin-top: 10px;
     margin-left: 450px ;
@@ -54,3 +54,7 @@
     margin-left: 15px;
     
 } 
+.remmber{
+    margin-top: 10px;
+
+}

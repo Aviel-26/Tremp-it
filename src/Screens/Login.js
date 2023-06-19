@@ -1,19 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Components/CSS/Login.css'
-import { Link , Outlet} from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from '../Components/FireBase.js';
 
 export default function Login() {
+
+    const navigate = useNavigate();
+  
+   const [Email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [uid, setUid] = useState('');
+  
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+    };
+  
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+    };
+  
+    /// Nevigate to Singup
+    const handleSignup =() =>{
+      navigate('/Singup' )
+    }
+  
+    const login = async (event) => {
+      event.preventDefault();
+      signInWithEmailAndPassword(auth,Email,password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        console.log( "user " + userCredential.user.uid  + "  conected: Hello nice user welcom to the web")
+        setUid(userCredential.user.uid);
+        navigate('/Home', {state: userCredential.user.uid} )
+  
+      }).catch((error) => {
+        console.log(error);
+        
+      });
+    };
+
+  
   return (
     <div>
+
       <h1 className='header'>Login</h1>
       
-      <form id='formLogin'>
+      <form id='formLogin' onSubmit={login}>
       <ul>
-        <li><input type="email" id="email" name="email" placeholder=' 📧  Email'/></li>
-        <li><input type="password" id="pass" pla="password" placeholder='🔒  Password' minlength="8" required/></li>
+        <li><input type="email" id="email" name="email" placeholder=' 📧  Email' onChange={handleEmailChange} required/></li>
+        <li><input type="password" id="pass" pla="password" placeholder='🔒  Password' minLength="6" onChange={handlePasswordChange} required /></li>
         
-        <input type="checkbox" id='check' />
-        <label class="container">Remmber me?</label>
+        <input type="checkbox" className='remmber' id='check' />Remmber me?
 
       </ul>
 

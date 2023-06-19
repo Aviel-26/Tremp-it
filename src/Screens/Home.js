@@ -5,8 +5,11 @@ import Sidebar from '../Components/Sidebar'
 
 export default function Home() {
   return (
-    <div id='continer'>
+    <div>
+        <Nav/>
         <Sidebar/>
+        
+        <div id='continer'>
         <h2> Search</h2>
         <label id='select'>My location</label>
         <select ></select>
@@ -20,7 +23,7 @@ export default function Home() {
           <h3>Destination</h3>
           <h3>Hour</h3>
           <h3>comunication</h3> 
-
+          </div>
     </div>
   )
 }

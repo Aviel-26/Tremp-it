@@ -18,11 +18,10 @@ import About from './Screens/About';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Nav/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Login/>}/>
       <Route path='/singup' element={<Singup/>}/>
-      <Route path='/login' element={<Login/>}/>
+      <Route path='/Home' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
 
       <Route path='/myrides' element={{}}/> {/* my rides components */}

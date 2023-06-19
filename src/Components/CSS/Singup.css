@@ -1,5 +1,5 @@
 .header{
-    margin: 00px 0px 10px 600px;
+    margin: 00px 0px 10px 580px;
     text-shadow: 1px 1px #fff;
 }
 #formSignup{
@@ -7,8 +7,11 @@
     border-radius: 25px;
     border-color:  #8c0ff2;
     display: inline-block;
-    padding: 30px;
-    margin-left: 350px;
+    /* width: 500px; */
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 60px; 
+    margin-left: 380px;
 }
 
 #formSignup ul li{
@@ -19,18 +22,20 @@
 }
 #formSignup ul li input{
     margin-left: 10px;
+    margin-right: 10px;
     height: 24px ;
     
     
 }
 
 #formSignup ul li label{
+    margin-top: 10px;
     margin-left: 20px;
 
 }
 #formSignup ul li textarea{
     margin-left: 20px;
-    width: 300px;
+    width: 355px;
     height: 150px;
     font: 1.25rem/1.1 sans-serif;
 }
@@ -80,5 +85,5 @@
     background: white;
     background-color: rgba(237, 233, 10, 0.639);
     margin-top: 20px; 
-    margin-left: 220px;
+    margin-left: 150px;
 }
