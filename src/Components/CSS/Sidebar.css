@@ -1,8 +1,9 @@
 .continer-Side-Bar{
 
-    display:block;
-    margin-top: 200px;
-    margin-right: 100px;
+    display:flex;
+    margin-top: 50px;
+    /* margin-right: 100px; */
+    float: left;
 }
 
 

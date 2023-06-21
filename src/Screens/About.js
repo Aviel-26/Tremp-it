@@ -1,10 +1,14 @@
 import React from 'react'
 import '../Components/CSS/About.css';
+import Sidebar from '../Components/Sidebar';
+import Nav from '../Components/Nav';
 
 
 export default function About() {
   return (
-    <div id=''>
+    <div >
+      <Nav/>
+      <Sidebar/>
 
       <h1 className='header'>About Tremp-it</h1>
       <div id ='continer-about'>

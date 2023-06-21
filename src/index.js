@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 //BrowserRouter 
@@ -9,14 +8,16 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 // Screens
 import Home from './Screens/Home';
-import Nav from './Components/Nav';
 import Singup from './Screens/Singup';
 import Login from './Screens/Login';
-import Sidebar from './Components/Sidebar';
 import About from './Screens/About';
+import Add from './Screens/Add';
+import Details from './Screens/Details';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Login/>}/>
@@ -24,15 +25,14 @@ root.render(
       <Route path='/Home' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
 
-      <Route path='/myrides' element={{}}/> {/* my rides components */}
-      <Route path='/newride' element={{}}/> {/* presonal ditals compepnt  */}
+      <Route path='/Add' element={<Add/>}/> 
+      <Route path='/Details' element={<Details/>}/> {/* presonal ditals compepnt  */}
       <Route path='settings' element={{}}/> {/* Settings compepnets */}
 
       <Route path='*' element={<h3> 404 - PAGE NOT FOUND</h3>}/>
-       {/* <Route path='*' element={<h3 className='text-center alert alert-danger'></h3> */}
     </Routes>
-  
   </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

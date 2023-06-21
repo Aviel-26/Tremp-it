@@ -44,12 +44,12 @@ export default function Login() {
   return (
     <div>
 
-      <h1 className='header'>Login</h1>
+      <h1 id='headerLog'>Login</h1>
       
       <form id='formLogin' onSubmit={login}>
       <ul>
-        <li><input type="email" id="email" name="email" placeholder=' 📧  Email' onChange={handleEmailChange} required/></li>
-        <li><input type="password" id="pass" pla="password" placeholder='🔒  Password' minLength="6" onChange={handlePasswordChange} required /></li>
+        <li><input type="email"   placeholder=' 📧  Email' onChange={handleEmailChange} required/></li>
+        <li><input type="password"  placeholder='🔒  Password' minLength="6" onChange={handlePasswordChange} required /></li>
         
         <input type="checkbox" className='remmber' id='check' />Remmber me?
 

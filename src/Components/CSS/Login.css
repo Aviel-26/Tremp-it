@@ -1,17 +1,17 @@
-.header{
-    margin: 00px 0px 10px 600px;
-    text-shadow: 1px 1px #fff;
-    display: inline-block
+#headerLog{
+    margin: 20px 0px 15px 630px;
+    text-shadow: 1px 1px #fff; 
+    display: inline-block;
 }
 
 #formLogin{
-    display: inline-block;
+    display: block;
     border: solid  #8c0ff2;
     border-radius: 25px; 
-    height: 280px;
+    height: 270px;
     width: 370px;
     margin-top: 10px;
-    margin-left: 450px ;
+    margin-left: 500px ;
 
 
 }
@@ -25,6 +25,8 @@
 #formLogin ul li input{
     height: 30px;
     width: 200px;
+    border-radius: 10px;
+    border: none
 
 }
 #formLogin hr{
@@ -55,6 +57,6 @@
     
 } 
 .remmber{
-    margin-top: 10px;
+    margin-top: 12px;
 
 }

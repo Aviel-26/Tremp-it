@@ -1,0 +1,69 @@
+#header{
+    margin: 20px 0px 20px 450px;
+    text-shadow: 1px 1px #fff;
+    /* display: inline-block; */
+}
+
+#addForm{
+
+    display: block;
+    border: solid  #8c0ff2;
+    border-radius: 25px; 
+    height: 600px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 430px ;
+    text-align: center;
+
+
+}
+
+#addForm ul{
+    list-style: none;
+    /* padding: 10px; */
+}
+
+#addForm ul li{
+    margin-top: 20px;
+}
+
+#addForm ul li input{
+    height: 30px;
+    width: 190px;
+    /* padding-left: 20px;  */
+    margin-right: 20px;
+    text-align: center;
+
+}
+#addForm ul li label{
+    margin-bottom: 1px;
+    margin-top: 10px;
+}
+#addForm textarea{
+    width: 200px;
+    height: 100px;
+    width: 300px;
+}
+#seLect{
+    margin-top: 10px;
+    margin-left: 120px;
+    width: 200px;
+    
+}
+#selectTime{
+    width: 100px;
+}
+
+.send{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.607);
+    border-radius: 30px;
+    background: white;
+    background-color: rgba(237, 233, 10, 0.639);
+    margin: 20px 0px 10px 180px;
+}

@@ -1,8 +1,23 @@
-.continer{
-    display: flex;
-    border: solid red;
-    margin-top: 300px;
+#continer{
+    display: inline-block;
+    /* float: right; */
+    border: solid  #8c0ff2;
+    border-radius: 25px; 
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 200px;
+    width: 1000px;
 }
+
+.continerDiv {
+    display: flex;
+    float: left;
+}
+.header{
+    margin: 00px 0px 10px 400px;
+    text-shadow: 1px 1px #fff;
+}
+
 .input{
     height: 30px; 
     margin-right: 20px;
@@ -25,4 +40,21 @@
     border: solid red;
 
 
+}
+#seLectHome{
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+#LiftTable th{
+
+    text-align: center;
+    width: 200px;
+    border: solid #b765fab4;
+}
+#LiftTable th h3{
+    
+    text-decoration: underline solid;
 }

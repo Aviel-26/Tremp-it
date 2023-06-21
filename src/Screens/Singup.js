@@ -4,9 +4,15 @@ import { useNavigate,Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { store ,auth } from '../Components/FireBase.js';
 import { addDoc, collection } from 'firebase/firestore';
+import Select from 'react-select'
+import { City } from '../Components/Data';
+
 
 export default function Singup() {
+//  -----------------------
   const navigate = useNavigate();
+  
+//  -----------------------
 
   const [Email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -78,6 +84,7 @@ export default function Singup() {
       const documentId = userCredential.user.uid;
 
       await addDoc(collection(store, 'Userbio'), {
+        uid: documentId,
         firstname: firstName,
         lastname: lastName,
         email: Email,
@@ -91,7 +98,7 @@ export default function Singup() {
         // street: street,
         about: aboutMe
       });
-      navigate('/Home');
+      navigate('/Home', documentId);
     } catch (error) {
       console.log(error);
     }
@@ -104,7 +111,7 @@ export default function Singup() {
 
   return (
     <div>
-      <h1 className="header">Signup</h1>
+      <h1 id='headerLog'>Signup</h1>
       <form id="formSignup" onSubmit={signup}>
         <ul>
           <li>
@@ -138,18 +145,8 @@ export default function Singup() {
           </li>
 
           <li>
-            <label id="select">City</label>
-            <select placeholder="Select" onChange={handleCityChange}>
-              <option value="city1">City 1</option>
-              <option value="city2">City 2</option>
-              {/* Add more options as needed */}
-            </select>
-            <label id="select">Street</label>
-            <select placeholder="Select" onChange={handleStreetChange}>
-              <option value="street1">Street 1</option>
-              <option value="street2">Street 2</option>
-              {/* Add more options as needed */}
-            </select>
+            <label id="select">City:</label>
+            <Select id='selectSginUp'  options={City} onChange={handleCityChange} required /> 
           </li>
 
           <li>
@@ -171,4 +168,3 @@ export default function Singup() {
     </div>
   );
 }
-
