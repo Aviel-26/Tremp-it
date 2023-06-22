@@ -20,12 +20,13 @@ export default function Add() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
+            console.log(user.uid);
             setUid(user.uid);
           } else {
             setUid(null);
           }
         });
-    
+
         // Clean up the listener when the component unmounts
         return () => unsubscribe();
       }, []);
@@ -58,15 +59,22 @@ export default function Add() {
 
     const handlesetTimeChange = (e) => {
         const selectedTime = e.value;
+        const currentDate = new Date().toLocaleDateString();
+        console.log(currentDate);
         const currentTime = new Date().toLocaleTimeString('en-US', {
           hour12: false,
           hour: '2-digit',
           minute: '2-digit',
         });
-        if(date != ''){
+        
+        if( date == null){
+        alert('Choose Date first.')
+
+        } else
+         if( date > currentDate ){
             setTime(selectedTime);
         }else {
-            if (selectedTime < currentTime) {
+            if (currentTime > selectedTime) {
             alert('Please select a future time.');
           } else {
             setTime(selectedTime);
@@ -74,17 +82,19 @@ export default function Add() {
         }
       };
 
-    const handlesetDateChange = (e) => {
-        const today = new Date();
-        const selectedDate = new Date(e.target.value);
-        const dayOfWeek = selectedDate.getDay(); // 0 for Sunday, 1 for Monday, and so on
+   const handlesetDateChange = (e) => {
+  const today = new Date();
+  const selectedDate = new Date(e.target.value);
+  const dayOfWeek = selectedDate.getDay();
 
-        if (selectedDate < today || dayOfWeek === 6 ) {  // Saturday
-            alert('Please select a future date.');
-        } else {
-            setDate(e.target.value);
-        }
-  };
+  const selectedDateString = selectedDate.toLocaleDateString('en-US');
+
+  if (selectedDate < today || dayOfWeek === 6) {  // Saturday
+    alert('Please select a future date.');
+  } else {
+    setDate(e.target.value);
+  }
+};
         
     const handlesetNoteChange = (e) => {
         setNote(e.target.value);
@@ -97,12 +107,14 @@ export default function Add() {
 // const Uid = UidContext;
 const AddLift = async (event) => {
     event.preventDefault();
+    console.log("date  --->   " + date)
     try {
-      await addDoc(collection(store, 'Lifts'), {
+      await addDoc(collection(store, date), {
         origin: origin,
         destination: destination,
         date: date,
         note: note || ' ',
+        time: time,
         uid: uid
       });
       navigate('/Home');

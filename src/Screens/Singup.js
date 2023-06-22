@@ -59,7 +59,7 @@ export default function Singup() {
   };
 
   const handleCityChange = (e) => {
-    setCity(e.target.value);
+    setCity(e.value);
   };
   const handleStreetChange = (e) => {
     setStreet(e.target.value);
@@ -98,7 +98,7 @@ export default function Singup() {
         // street: street,
         about: aboutMe
       });
-      navigate('/Home', documentId);
+      navigate('/', documentId);
     } catch (error) {
       console.log(error);
     }
@@ -141,7 +141,6 @@ export default function Singup() {
               <input type="radio" name="gender" id="g2" />Female
             </div>
 
-            {/* <input type="file" name="Image" accept="image/*" id="custom-file-input" onChange={handlePhotoChange} /> */}
           </li>
 
           <li>
