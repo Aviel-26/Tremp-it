@@ -61,16 +61,9 @@ export default function Singup() {
   const handleCityChange = (e) => {
     setCity(e.value);
   };
-  const handleStreetChange = (e) => {
-    setStreet(e.target.value);
-  };
   const handleAboutMeChange = (e) => {
     setAboutMe(e.target.value);
   };
-  // const handlePhotoChange = (e) => {
-  //   console.log(e);
-  //   setPhoto(e.target.file);
-  // };
 
   const handleSetGenderChange = (e) => {
     setGender(e.target.value);
@@ -137,8 +130,8 @@ export default function Singup() {
           <li>
             <div onChange={handleSetGenderChange}>
               <label>Gender:</label>
-              <input type="radio" name="gender" id="g1" required/>Male
-              <input type="radio" name="gender" id="g2" />Female
+              <input type="radio" name="gender" id="g1" value='Male' required/>Male
+              <input type="radio" name="gender" id="g2" value='Female' />Female
             </div>
 
           </li>

@@ -4,7 +4,7 @@ import Nav from '../Components/Nav'
 import '../Components/CSS/Home.css'
 import Sidebar from '../Components/Sidebar'
 import { City } from '../Components/Data'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { store, auth } from '../Components/FireBase'
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -85,48 +85,6 @@ export default function Home() {
 
 // -----------------------------------------------------------------
 
-
-// const [allUsersData, setallUsersData] = useState();
-
-// useEffect(() => {
-//   const getDB = async (store) => {
-//     const userBio = await getDocs(collection(store, 'Userbio'));
-
-//     const userBioList = userBio.docs.map((doc) => ({
-//       id: doc.id,
-//       data: doc.data()
-//     }));
-
-//     setallUsersData(userBioList);
-//     console.log(' allUsersData      ');
-//     console.log( userBioList);
-//   };
-
-//   getDB(store);
-// }, []);
-
-
-// const [userDetails, setuserDetails] = useState(null);
-
-// const getUserDetails = (uid) => {
-//   const user = allUsersData.find((user) => user.id === uid);
-//   return user ? user : null;
-// };
-
-//   const handleSearchUser = (uid) => {
-//     const userDetails = getUserDetails(uid);
-//     setuserDetails(userDetails);
-//     console.log(' OneSserDetailsEach   ');
-//     console.log(userDetails);
-//   };
-
-//   const getUserName= (uid)=>{
-//     const D =handleSearchUser(uid);
-//     console.log("User name")
-//     console.log(D.firstname)
-//     return D.firstname
-//   }
-
 const [allUsersData, setAllUsersData] = useState([]);
 
   useEffect(() => {
@@ -138,20 +96,13 @@ const [allUsersData, setAllUsersData] = useState([]);
       }));
 
       setAllUsersData(userBioList);
-      console.log('All Users Data:');
-      console.log(userBioList);
     };
 
     getUsersData();
   }, []);
 
   const getUserDetails = (uid) => {
-    console.log(uid);
     const user = allUsersData.find((user) => user.data.uid === uid);
-    console.log('allUsersDataFunc');
-    console.log(allUsersData);
-    console.log('user');
-    console.log(user);
     return user ? user : null;
   };
 
