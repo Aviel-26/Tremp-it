@@ -8,6 +8,7 @@ import { signOut } from 'firebase/auth';
 export default function Nav() {
   const navigate = useNavigate();
 
+
   const handleSignOut = (event) => {
     event.preventDefault();
     signOut(auth)
@@ -29,6 +30,7 @@ export default function Nav() {
         
         <ul>
           <li><Link to="/Home">Home</Link></li>
+          <li><Link to="/Search">Search</Link></li>
           <li><Link to="/about">About</Link></li>
           <li onClick={handleSignOut}><Link to="/">Signout</Link></li>
         </ul>

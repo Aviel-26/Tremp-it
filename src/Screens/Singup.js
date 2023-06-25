@@ -22,9 +22,7 @@ export default function Singup() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [gender, setGender] = useState();
-  // const [photo, setPhoto] = useState();
   const [city, setCity] = useState();
-  const [street, setStreet] = useState();
   const [phone, setPhone] = useState();
   const [aboutMe, setAboutMe] = useState();
 
@@ -87,8 +85,7 @@ export default function Singup() {
         phone: phone,
         birth: birth,
         gender: gender,
-        // city: city,
-        // street: street,
+        city: city,
         about: aboutMe
       });
       navigate('/', documentId);

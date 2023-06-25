@@ -13,6 +13,8 @@ import Login from './Screens/Login';
 import About from './Screens/About';
 import Add from './Screens/Add';
 import Details from './Screens/Details';
+import Search from './Screens/Search';
+import EditDitails from './Screens/EditDitails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,10 +26,13 @@ root.render(
       <Route path='/singup' element={<Singup/>}/>
       <Route path='/Home' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path='/search' element={<Search/>}/>
 
       <Route path='/Add' element={<Add/>}/> 
-      <Route path='/Details' element={<Details/>}/> {/* presonal ditals compepnt  */}
-      <Route path='settings' element={{}}/> {/* Settings compepnets */}
+      <Route path='/Details' element={<Details/>}/> 
+        <Route path='/Details/EditDitails' element={<EditDitails/>}/> 
+
+      <Route path='settings' element={{}}/> 
 
       <Route path='*' element={<h3> 404 - PAGE NOT FOUND</h3>}/>
     </Routes>

@@ -109,7 +109,6 @@ const [allUsersData, setAllUsersData] = useState([]);
   const getUserName = (uid) => {
     const userDetails = getUserDetails(uid);
     if (userDetails && userDetails.data) {
-      console.log(userDetails.data.firstname);
       const fullName = userDetails.data.firstname +' '+ userDetails.data.lastname;
       return fullName ;
     }
@@ -129,32 +128,9 @@ const [allUsersData, setAllUsersData] = useState([]);
       <Nav />
       <Sidebar />
 
-      <h2 className="header"> Search</h2>
+      <h2 className="header"> Home</h2>
 
       <div id="continer">
-        <div>
-          <label id="select" type="text">
-            My location
-          </label>
-          <Select
-            id="seLectHome"
-            options={City}
-            onChange={handleLocationChange}
-            required
-          />
-          <label type="text">Destination</label>
-          <Select
-            id="seLectHome"
-            options={City}
-            onChange={handleDestinationChange}
-            required
-          />
-        </div>
-
-        <button type="submit" className="BTNsearch">
-          Search 🔎
-        </button>
-
         <div>
           {weekDays.map((day, index) => (
             <div key={index}>
