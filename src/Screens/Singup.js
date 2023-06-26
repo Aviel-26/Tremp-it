@@ -86,7 +86,9 @@ export default function Singup() {
         birth: birth,
         gender: gender,
         city: city,
-        about: aboutMe
+        about: aboutMe,
+        manager: false,
+        blocked: false
       });
       navigate('/', documentId);
     } catch (error) {

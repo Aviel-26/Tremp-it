@@ -1,3 +1,10 @@
+.top{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+
 #continer{
     display: inline-block;
     /* float: right; */

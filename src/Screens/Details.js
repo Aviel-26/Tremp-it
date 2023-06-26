@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Details() {
+  
   const [uid, setUid] = useState(null);
   const [personalData, setPersonalData] = useState([]);
   const navigate = useNavigate();

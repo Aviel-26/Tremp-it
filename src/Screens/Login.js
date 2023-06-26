@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import '../Components/CSS/Login.css'
 import { Link , useNavigate} from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import {auth} from '../Components/FireBase.js';
+import {auth, store} from '../Components/FireBase.js';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 export default function Login() {
 
@@ -24,21 +25,39 @@ export default function Login() {
     const handleSignup =() =>{
       navigate('/Singup' )
     }
-  
-    const login = async (event) => {
-      event.preventDefault();
-      signInWithEmailAndPassword(auth,Email,password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        console.log( "user " + userCredential.user.uid  + "  conected: Hello nice user welcom to the web")
-        setUid(userCredential.user.uid);
-        navigate('/Home', {state: userCredential.user.uid} )
-  
-      }).catch((error) => {
-        console.log(error);
-        
-      });
-    };
+
+
+  const login = async (event) => {
+  event.preventDefault();
+
+  signInWithEmailAndPassword(auth, Email, password)
+    .then(async (userCredential) => {
+      const uid = userCredential.user.uid;
+
+      // Check if the user is blocked
+      const userBioQuery = query(collection(store, 'Userbio'), where('uid', '==', uid));
+      const userBioSnapshot = await getDocs(userBioQuery);
+
+      if (!userBioSnapshot.empty) {
+        const userBioDoc = userBioSnapshot.docs[0];
+        const isBlocked = userBioDoc.data().blocked;
+
+        if (isBlocked) {
+          alert('You are blocked from this web.');
+          return;
+        }
+      }
+
+      console.log(userCredential);
+      console.log(`User ${uid} connected: Hello nice user, welcome to the web`);
+      setUid(uid);
+      navigate('/Home', { state: uid });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 
   
   return (

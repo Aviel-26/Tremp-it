@@ -1,0 +1,36 @@
+.headerAccount{
+    margin: 00px 0px 10px 500px;
+    text-shadow: 1px 1px #fff;
+}
+
+
+.AccountPAge{
+    display: inline-block;
+    border: solid  #8c0ff2;
+    border-radius: 25px; 
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 200px;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  td:last-child {
+    text-align: center;
+  }
+
+  .btnBlock{
+    background-color: #f0e8f7c3;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.323)
+  }

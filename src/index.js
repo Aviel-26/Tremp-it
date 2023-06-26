@@ -15,6 +15,7 @@ import Add from './Screens/Add';
 import Details from './Screens/Details';
 import Search from './Screens/Search';
 import EditDetails from './Screens/EditDetails';
+import Accounts from './Screens/Accounts';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,6 +32,8 @@ root.render(
       <Route path='/Add' element={<Add/>}/> 
       <Route path='/Details' element={<Details/>}/> 
         <Route path='/Details/EditDetails' element={<EditDetails/>}/> 
+      
+      <Route path='/Accounts' element={<Accounts/>}/> 
 
       <Route path='settings' element={{}}/> 
 

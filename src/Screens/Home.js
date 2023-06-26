@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
+import Managerbar from '../Components/Managerbar'
 import { collection, getDocs } from 'firebase/firestore'
 import { store } from '../Components/FireBase'
 import '../Components/CSS/Home.css'
@@ -122,7 +123,7 @@ const [allUsersData, setAllUsersData] = useState([]);
   }
 // -----------------------------------------------------------------
   return (
-    <div>
+    <div className='top'>
       <Nav />
       <Sidebar />
 
