@@ -4,7 +4,10 @@ import { City } from '../Components/Data';
 import Select from 'react-select';
 import {collection, getDocs, query, updateDoc, where} from 'firebase/firestore';
 import { auth, store } from '../Components/FireBase';
-import { getAuth, reauthenticateWithCredential, updatePassword , EmailAuthProvider} from 'firebase/auth';
+import { reauthenticateWithCredential, updatePassword , EmailAuthProvider} from 'firebase/auth';
+import Nav from '../Components/Nav'
+import Sidebar from '../Components/Sidebar'
+import '../Components/CSS/EditDetails.css'
 
 export default function EditDetails() {
   const location = useLocation();
@@ -158,9 +161,16 @@ export default function EditDetails() {
 
   return (
     <div>
-      <h1 id="headerBio">Edit Profile</h1>
+      <Nav/>
+      <Sidebar/>
 
-      <form onSubmit={EditChanges}>
+      <h1 className="Editheader">Edit Profile</h1>
+
+
+      <form id='FormEdit' onSubmit={EditChanges}>
+
+        <div className='div1'>
+
         <h4>Full Name:</h4>
         <input type="text" placeholder="Set First Name" value={firstName} onChange={handleFirstNameChange} required/>
 
@@ -172,12 +182,16 @@ export default function EditDetails() {
 
         <h4>Student ID:</h4>
         <input type="text" placeholder="Set Student ID" value={studentID} onChange={handleStudentIDChange} required/>
+        
+        
+        </div>
 
+        <div className='div1'>
         <h4>Birth:</h4>
         <input type="date" id="birthday" name="birthday" value={birth} onChange={handleBirthChange} required/>
 
-        <div onChange={handleSetGenderChange}>
-          <label>Gender:</label>
+        <div className='DivGender' onChange={handleSetGenderChange}>
+        <h4>Gender:</h4>
           <input type="radio" name="gender" id="g1" value="Male" checked={gender === 'Male'} required/>Male
           <input type="radio" name="gender"id="g2" value="Female" checked={gender === 'Female'}/>Female
         </div>
@@ -188,17 +202,24 @@ export default function EditDetails() {
         <h4 id="select">City:</h4>
         <Select id="selectSginUp" options={City} value={{ label: city, value: city }} onChange={handleCityChange} required/>
 
+        </div>
 
+        <div className='div2'>
         <h4>About Me:</h4>
-        <textarea type="text" placeholder="Set About Me" value={aboutMe} onChange={handleAboutMeChange} required/>
+        <textarea className='TxTEra' type="text" placeholder="Set About Me" value={aboutMe} onChange={handleAboutMeChange} required/>
+        </div>
 
+         
+        <div id='div3'>
+          <hr/>
         <h4>New Password:</h4>
         <input type="password" placeholder="Set Password"  onChange={handlePasswordChange} required/>
 
         <h4>Confirm Password:</h4>
         <input type="password" placeholder="Confirm Password"  onChange={handleConfirmPasswordChange} required/>
 
-        <button type="submit">Save</button>
+        </div>
+        <button className='btnSave' type="submit">Save</button>
       </form>
     </div>
   );

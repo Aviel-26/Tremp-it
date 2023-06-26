@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
 import Nav from '../Components/Nav'
-import '../Components/CSS/Home.css'
 import Sidebar from '../Components/Sidebar'
-import { City } from '../Components/Data'
 import { collection, getDocs } from 'firebase/firestore'
-import { store, auth } from '../Components/FireBase'
-import { onAuthStateChanged } from 'firebase/auth';
+import { store } from '../Components/FireBase'
+import '../Components/CSS/Home.css'
+
 
 export default function Home() {
   const [location, setLocation] = useState();

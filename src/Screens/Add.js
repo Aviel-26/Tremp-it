@@ -126,7 +126,7 @@ export default function Add() {
         <Nav/>
         <Sidebar/>
 
-        <h1 id='header'>Add New Lift</h1>
+        <h1 className='headerAdd'>Add New Lift</h1>
 
         <form id='addForm' onSubmit={AddLift}>
         <ul>  

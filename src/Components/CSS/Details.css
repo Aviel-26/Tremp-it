@@ -1,20 +1,56 @@
 #headerBio{
     margin: 20px 0px 20px 450px;
     text-shadow: 1px 1px #fff;
-    /* display: inline-block; */
+
 }
-#BioForm{
+.BioForm{
     display: block;
     border: solid  #8c0ff2;
     border-radius: 25px; 
-    height: 600px;
     width: 500px;
     margin-top: 10px;
-    margin-left: 430px ;
+    margin-left: 370px ;
     padding: 40px;
 }
 
-#BioForm h4{
-    margin-top: 20px;
-    margin-left: 40px;
+.btnSave{
+    text-align: center;
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.607);
+    border-radius: 30px;
+    background: white;
+    background-color: rgba(237, 233, 10, 0.639);
+    margin: 30px 0px 10px 130px;
+}
+
+#showTable{
+    width: 400px;
+
+}
+#showTable tr {
+    
+    text-align: left;
+    width: 80px;
+}
+
+#showTable tr td h4{
+    display: inline;
+}
+
+#showTable tr td{
+    padding: 10px;
+    
+}
+
+
+.abtMe{
+    margin-left: 100px
+}
+
+.pText{
+    font-size: large;
+    
 }

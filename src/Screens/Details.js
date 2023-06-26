@@ -45,7 +45,7 @@ export default function Details() {
   const handleEdit=()=>{
     console.log('personalData')
     console.log(personalData)
-    navigate('/Details/EditDitails', {state: personalData })
+    navigate('/Details/EditDetails', {state: personalData })
   }
 
 
@@ -56,9 +56,76 @@ export default function Details() {
       <Sidebar />
 
       <h1 id="headerBio">Personal Details</h1>
-      <form id="BioForm">
-        {/* Render the content when personalData is available */}
-        <h4>Full Name: {personalData.firstname} {personalData.lastname}</h4>
+      <form className="BioForm">
+
+        <table id = 'showTable'>
+
+          <tr> 
+            <td><h4>  Full Name:  </h4></td>
+            <td><h4>   {personalData.firstname} {personalData.lastname} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4>  ID:  </h4></td>
+            <td><h4>   {personalData.id} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4>  StudentID:   </h4></td>
+            <td><h4>   {personalData.idstudent} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4>  Birth:   </h4></td>
+            <td><h4>   {personalData.birth} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4> City:   </h4></td>
+            <td><h4>    {personalData.city} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4>  Gender:  </h4></td>
+            <td><h4>    {personalData.gender} </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4>  Email:   </h4></td>
+            <td><h4>  {personalData.email}  </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4> Phone:    </h4></td>
+            <td><h4>  {personalData.phone}  </h4></td>
+          </tr>
+
+          <tr> 
+            <td><h4> Password:    </h4></td>
+            <td><h4> {personalData.password}   </h4></td>
+          </tr>
+
+          <div className='abtMe'>
+
+            <h4>  About Me:  </h4>
+             <p className='pText'>{personalData.about}</p>
+          
+             </div>
+
+        <button className='btnSave' type="submit" onClick={handleEdit}>Edit</button>
+
+        </table>
+
+      </form>
+    </div>
+  );
+}
+
+
+
+
+     {/* Render the content when personalData is available */}
+        {/* <h4>Full Name: {personalData.firstname} {personalData.lastname}</h4>
         <h4>ID: {personalData.id}</h4>
         <h4>StudentID: {personalData.idstudent}</h4>
         <h4>Birth: {personalData.birth}</h4>
@@ -67,10 +134,5 @@ export default function Details() {
         <h4>Email: {personalData.email}</h4>
         <h4>Phone: {personalData.phone}</h4>
         <h4>Password: {personalData.password}</h4>
-        <h4>About Me: {personalData.about}</h4>
-
-        <button type="submit" onClick={handleEdit}>Edit</button>
-      </form>
-    </div>
-  );
-}
+        <h4>About Me:</h4>
+        <h4> {personalData.about}</h4> */}

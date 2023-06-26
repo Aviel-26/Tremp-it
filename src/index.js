@@ -14,7 +14,7 @@ import About from './Screens/About';
 import Add from './Screens/Add';
 import Details from './Screens/Details';
 import Search from './Screens/Search';
-import EditDitails from './Screens/EditDitails';
+import EditDetails from './Screens/EditDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,7 +30,7 @@ root.render(
 
       <Route path='/Add' element={<Add/>}/> 
       <Route path='/Details' element={<Details/>}/> 
-        <Route path='/Details/EditDitails' element={<EditDitails/>}/> 
+        <Route path='/Details/EditDetails' element={<EditDetails/>}/> 
 
       <Route path='settings' element={{}}/> 
 
