@@ -17,6 +17,7 @@ import Search from './Screens/Search';
 import EditDetails from './Screens/EditDetails';
 import Accounts from './Screens/Accounts';
 import Lifts from './Screens/Lifts';
+import MyData from './Screens/MyData';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,11 +34,10 @@ root.render(
       <Route path='/Add' element={<Add/>}/> 
       <Route path='/Details' element={<Details/>}/> 
         <Route path='/Details/EditDetails' element={<EditDetails/>}/> 
+      <Route path='/MyData' element={<MyData/>}/> 
       
       <Route path='/Accounts' element={<Accounts/>}/> 
       <Route path='/Lifts' element={<Lifts/>}/> 
-
-      <Route path='settings' element={{}}/> 
 
       <Route path='*' element={<h3> 404 - PAGE NOT FOUND</h3>}/>
     </Routes>
