@@ -8,7 +8,7 @@ export default function Managerbar() {
     <div className='continerManager'>
        <div id='Managerbar'>
         <ul>
-            <li> <Link to='/Add'> lifts</Link></li>
+            <li> <Link to='/Lifts'> lifts</Link></li>
             <li> <Link to='/Accounts'> Accounts</Link></li>
 
         </ul>

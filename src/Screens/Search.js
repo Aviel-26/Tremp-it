@@ -188,15 +188,8 @@ const getUserPhone = (uid) => {
                         </tr>
                     )}
                 </tbody>
-
         </table>
-
-
-
-
-
         </div>
-
     </div>
   )
 }

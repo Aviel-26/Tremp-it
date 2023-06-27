@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getDocs, query, collection, where } from 'firebase/firestore';
+import { getDocs, query, collection, where, deleteDoc } from 'firebase/firestore';
 import Nav from '../Components/Nav';
 import Sidebar from '../Components/Sidebar';
 import {  store } from '../Components/FireBase';
 import '../Components/CSS/Accounts.css';
 
-import { doc, updateDoc, writeBatch } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 
 
 
@@ -35,36 +35,61 @@ export default function AccountTable()  {
 
 
 
-const handleDelete = async (uid) => {
-  try {
-    // Find the user document using the provided UID
-    const queryRef = query(collection(store, 'Userbio'), where('uid', '==', uid));
-    const querySnapshot = await getDocs(queryRef);
-
-    if (!querySnapshot.empty) {
-      // Get the first document from the query snapshot
-      const userDoc = querySnapshot.docs[0];
-      const userRef = doc(store, 'Userbio', userDoc.id);
-
-      // Update the blocked field
-      await updateDoc(userRef, {
-        blocked: true,
-      });
-
-      // Delete user's Userbio collection (if needed)
-
+  const handleDelete = async (uid) => {
+    try {
+      // Get all the collection names from today onwards
+      const currentDate = new Date();
+      const collectionNames = [];
+  
+      for (let i = 0; i < 6; i++) {
+        const nextDay = new Date();
+        nextDay.setDate(currentDate.getDate() + i);
+  
+        if (nextDay.getDay() !== 6) {
+          const collectionName = `${nextDay.getFullYear()}-${(nextDay.getMonth() + 1)
+            .toString()
+            .padStart(2, '0')}-${nextDay.getDate().toString().padStart(2, '0')}`;
+          collectionNames.push(collectionName);
+        }
+      }
+  
+      // Update the blocked field in the Userbio collection
+      const userQueryRef = query(collection(store, 'Userbio'), where('uid', '==', uid));
+      const userQuerySnapshot = await getDocs(userQueryRef);
+  
+      if (!userQuerySnapshot.empty) {
+        const userDoc = userQuerySnapshot.docs[0];
+        const userRef = doc(store, 'Userbio', userDoc.id);
+  
+        await updateDoc(userRef, {
+          blocked: true,
+        });
+      }
+  
+      // Iterate over each collection (excluding Userbio) and delete the user's document
+      for (const collectionName of collectionNames) {
+        if (collectionName !== 'Userbio') {
+          const queryRef = query(collection(store, collectionName), where('uid', '==', uid));
+          const querySnapshot = await getDocs(queryRef);
+  
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userRef = doc(store, collectionName, userDoc.id);
+  
+            await deleteDoc(userRef);
+          }
+        }
+      }
+  
       // Update the accounts state by removing the blocked user
       setAccounts((prevAccounts) => prevAccounts.filter((account) => account.id !== uid));
+  
       window.location.reload();
-    } else {
-      console.error('User document not found.');
+    } catch (error) {
+      console.error('Error deleting user:', error);
     }
-  } catch (error) {
-    console.error('Error deleting user:', error);
-  }
-};
-
- 
+  };
+  
 
   return (
     <div>
@@ -110,12 +135,9 @@ const handleDelete = async (uid) => {
                 <td>{item.data.idstudent}</td>
               </tr>
             ))}
-
         </tbody>
       </table>  
-
       </div>
-
     </div>
   );
 };
