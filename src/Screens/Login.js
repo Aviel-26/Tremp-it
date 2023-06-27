@@ -4,6 +4,7 @@ import { Link , useNavigate} from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth, store} from '../Components/FireBase.js';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import logoLogin from '../image/logoLogin.jpg';
 
 export default function Login() {
 
@@ -21,11 +22,6 @@ export default function Login() {
       setPassword(e.target.value);
     };
   
-    /// Nevigate to Singup
-    const handleSignup =() =>{
-      navigate('/Singup' )
-    }
-
 
   const login = async (event) => {
   event.preventDefault();
@@ -54,6 +50,7 @@ export default function Login() {
       navigate('/Home', { state: uid });
     })
     .catch((error) => {
+      alert('Email or password incorrect');
       console.log(error);
     });
 };
@@ -83,6 +80,8 @@ export default function Login() {
       <Link to='/singup' className='link1'>  Singup </Link>
       </div>
       </form>
+
+      <img className='logoLogin' src={logoLogin} alt="logoLogin" />
       
     </div>
   )

@@ -138,9 +138,21 @@ export default function AccountTable() {
                     </td>
                   </tr>
                 ))}
+                 </tbody>
+        </table>
 
             <h4>Blocked Users</h4>
 
+            <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>StudentID</th>
+              <th>Un-Block</th>
+            </tr>
+          </thead>
+          <tbody>
             {accounts.length > 0 &&
               accounts
                 .filter((item) => item.data.blocked)
