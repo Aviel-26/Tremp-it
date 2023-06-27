@@ -4,6 +4,7 @@ import Sidebar from '../Components/Sidebar';
 import { collection, deleteDoc, getDocs, query, where } from 'firebase/firestore';
 import { auth, store } from '../Components/FireBase';
 import { onAuthStateChanged } from 'firebase/auth';
+import '../Components/CSS/MyData.css';
 
 export default function MyData() {
     const [myRides, setMyRides] = useState([]);
@@ -99,7 +100,7 @@ export default function MyData() {
         <Sidebar/>
         
         
-        <h1 className='headerAccount'>My Rides for the Next Month</h1>
+        <h1 className='headerData'>My Rides for the Next Month</h1>
         <div className='AccountPAge'>
         <table>
           <thead>

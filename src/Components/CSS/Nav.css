@@ -1,7 +1,7 @@
 
 .navigation{
     display: flex;
-    
+    margin-left: 60px;
 }
 
 #nav ul{
@@ -16,6 +16,7 @@
     float: left;
     height:220px ;
     width: 320px ;
+
 }
 
 #nav ul li {
@@ -28,7 +29,8 @@
     border-radius: 30px;
     background: white;
     background-color: rgba(237, 233, 10, 0.639);
-    margin: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
 }
 #nav ul li:link{
     text-decoration: none;
