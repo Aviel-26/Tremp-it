@@ -51,29 +51,29 @@ export default function Add() {
 
       };
 
-    const handlesetTimeChange = (e) => {
+      const handlesetTimeChange = (e) => {
         const selectedTime = e.value;
-        const currentDate = new Date().toLocaleDateString();
-        const currentTime = new Date().toLocaleTimeString('en-US', {
-          hour12: false,
-          hour: '2-digit',
-          minute: '2-digit',
-        });
-        
-        if( date == null){
-        alert('Choose Date first.')
-
-        } else
-         if( date > currentDate ){
-            setTime(selectedTime);
-        }else {
-            if (currentTime > selectedTime) {
-            alert('Please select a future time.');
-          } else {
-            setTime(selectedTime);
+        const selectedDate = date; // Replace 'date' with the appropriate variable that holds the selected date value
+        const currentDate = new Date();
+        const currentTime = currentDate.getTime();
+      
+        // Set the selected date and time
+        const selectedDateTime = new Date(`${selectedDate} ${selectedTime}`).getTime();
+      
+        // Compare the selected date with the current date
+        if (selectedDateTime < currentDate.getTime()) {
+          return alert('Choose a future date.');
+        } else if (selectedDate === currentDate.toLocaleDateString()) {
+          // If the selected date is today, compare the selected time with the current time
+          if (selectedDateTime <= currentTime) {
+            return alert('Please select a future time.');
           }
         }
+      
+        // Proceed with setting the selected time
+        setTime(selectedTime);
       };
+      
 
 
       const handlesetDateChange = (e) => {
@@ -93,9 +93,9 @@ export default function Add() {
         }
       };
         
-    const handlesetNoteChange = (e) => {
-        setNote(e.target.value);
-      };
+  const handlesetNoteChange = (e) => {
+      setNote(e.target.value);
+    };
 
 
 

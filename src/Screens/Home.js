@@ -1,31 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
-import Managerbar from '../Components/Managerbar'
 import { collection, getDocs } from 'firebase/firestore'
 import { store } from '../Components/FireBase'
 import '../Components/CSS/Home.css'
 
 
 export default function Home() {
-  const [location, setLocation] = useState();
-  const [destination, setDestination] = useState();
-
-  const handleLocationChange = (e) => {
-    if (e.value === destination) {
-      alert('Please select a different Location.');
-    } else {
-      setLocation(e.value);
-    }
-  };
-
-  const handleDestinationChange = (e) => {
-    if (e.value === location) {
-      alert('Please select a different Destination.');
-    } else {
-      setDestination(e.value);
-    }
-  };
 
   const [weekDays, setWeekDays] = useState([]);
 
@@ -127,7 +108,7 @@ const [allUsersData, setAllUsersData] = useState([]);
       <Nav />
       <Sidebar />
 
-      <h2 className="header"> Home</h2>
+      <h2 className='headerHome'> Home</h2>
 
       <div id="continer">
         <div>

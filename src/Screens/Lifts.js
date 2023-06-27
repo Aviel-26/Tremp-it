@@ -137,10 +137,6 @@ const handleDeleteLift = async (uid) => {
         const userDoc = userQuerySnapshot.docs[0];
         const userRef = doc(store, 'Userbio', userDoc.id);
 
-        // Update the blocked field in the user document
-        await updateDoc(userRef, {
-          blocked: true,
-        });
       }
     }
     window.location.reload();
